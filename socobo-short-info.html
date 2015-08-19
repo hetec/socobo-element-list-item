@@ -12,7 +12,7 @@
   <style>
     :host{
     }
-    .recipe_short_info{
+    .short_info {
       position: relative;
       height: 50px;
       line-height: 50px;
@@ -20,23 +20,21 @@
       color: #8A7F80;
     }
 
-    .recipe_short_info:hover{
+    .short_info:hover{
       background-color: #F4F0EC;
     }
 
     paper-checkbox {
       position: absolute;
       left: 30px;
-      --paper-checkbox-unchecked-color: #8A7F80;
-      --paper-checkbox-checked-color: #77DD77;
     }
 
-    .recipe_desc{
+    .desc {
       position: absolute;
       left: 15%;
       font-family: sans-serif;
     }
-    
+
     .info{
       margin-left: 10px;
     }
@@ -52,15 +50,15 @@
     }
 
     iron-icon:hover{
-      color: #77DD77;
+      color: var(--default-primary-color);
     }
 
   </style>
 
   <template>
-    <paper-material class="recipe_short_info" elevation="0">
+    <paper-material class="short_info" elevation="0" on-click="elementClicked">
       <paper-checkbox checked="{{isChecked}}" on-click="changeValue"></paper-checkbox>
-      <span class="recipe_desc">{{desc}}<span class="info">{{info}}</span></span>
+      <span class="desc">{{desc}}<span class="info">{{info}}</span></span>
       <span class="edit"><iron-icon icon="create"></iron-icon></span>
       <span class="delete"><iron-icon icon="delete"></iron-icon></span>
     </paper-material>
@@ -94,6 +92,9 @@
       }else{
         this.fire("uncheck");
       }
+    },
+    elementClicked: function () {
+      this.fire("show_request");
     }
   });
 })();
