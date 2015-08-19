@@ -1,5 +1,5 @@
 {
-  "name": "socobo-recipe-overview",
+  "name": "socobo-short-info",
   "version": "0.0.1",
   "description": "Element representing a summarized information about one recipe, item or other",
   "author": [

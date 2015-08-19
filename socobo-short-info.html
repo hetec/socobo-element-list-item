@@ -30,8 +30,10 @@
     }
 
     .desc {
+      width: 75%;
+      padding-left: 10%;
       position: absolute;
-      left: 15%;
+      left: 5%;
       font-family: sans-serif;
     }
 
@@ -56,11 +58,11 @@
   </style>
 
   <template>
-    <paper-material class="short_info" elevation="0" on-click="elementClicked">
+    <paper-material class="short_info" elevation="0" >
       <paper-checkbox checked="{{isChecked}}" on-click="changeValue"></paper-checkbox>
-      <span class="desc">{{desc}}<span class="info">{{info}}</span></span>
-      <span class="edit"><iron-icon icon="create"></iron-icon></span>
-      <span class="delete"><iron-icon icon="delete"></iron-icon></span>
+      <span class="desc" on-click="showElement">{{desc}}<span class="info">{{info}}</span></span>
+      <span class="edit"><iron-icon icon="create" on-click="editElement"></iron-icon></span>
+      <span class="delete"><iron-icon icon="delete" on-click="deleteElement"></iron-icon></span>
     </paper-material>
 
   </template>
@@ -86,15 +88,21 @@
         value : false
       }
     },
-    changeValue : function(){
+    changeCheckBox : function(e){
       if(this.isChecked == true){
-        this.fire("check");
+        this.fire("check", e);
       }else{
-        this.fire("uncheck");
+        this.fire("uncheck", e);
       }
     },
-    elementClicked: function () {
-      this.fire("show_request");
+    showElement: function (e) {
+      this.fire("show_request", e);
+    },
+    editElement : function(e){
+      this.fire("edit_request", e);
+    },
+    deleteElement : function (e) {
+      this.fire("delete_request", e);
     }
   });
 })();
