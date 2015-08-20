@@ -1,5 +1,5 @@
 {
-  "name": "socobo-short-info",
+  "name": "socobo-list-item",
   "version": "0.0.1",
   "description": "Element representing a summarized information about one recipe, item or other",
   "author": [
@@ -12,7 +12,7 @@
     "socobo",
     "frontend"
   ],
-  "main": "socobo-short-info.html",
+  "main": "socobo-list-item.html",
   "private": true,
   "repository": {
     "type": "git",

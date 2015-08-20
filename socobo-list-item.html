@@ -8,7 +8,7 @@
 <!-- Todo: Add your Polymer Element Imports here: -->
 
 
-<dom-module id="socobo-short-info">
+<dom-module id="socobo-list-item">
   <style>
     :host{
     }
@@ -59,8 +59,8 @@
 
   <template>
     <paper-material class="short_info" elevation="0" >
-      <paper-checkbox checked="{{isChecked}}" on-click="changeValue"></paper-checkbox>
-      <span class="desc" on-click="showElement">{{desc}}<span class="info">{{info}}</span></span>
+      <paper-checkbox checked="{{isChecked}}" on-click="changeCheckBox"></paper-checkbox>
+      <span class="desc" on-click="showElement">{{obj.desc}}<span class="info">{{obj.info}}</span></span>
       <span class="edit"><iron-icon icon="create" on-click="editElement"></iron-icon></span>
       <span class="delete"><iron-icon icon="delete" on-click="deleteElement"></iron-icon></span>
     </paper-material>
@@ -72,37 +72,33 @@
 <script>
 (function() {
   Polymer({
-    is: 'socobo-short-info',
+    is: 'socobo-list-item',
 
     properties: {
-      desc : {
-        type : String,
-        value : ""
-      },
-      info : {
-        type : String,
-        value : ""
+      obj : {
+        type : Object,
+        value : {}
       },
       isChecked : {
         type : Boolean,
         value : false
       }
     },
-    changeCheckBox : function(e){
+    changeCheckBox : function(){
       if(this.isChecked == true){
-        this.fire("check", e);
+        this.fire("check", this.obj);
       }else{
-        this.fire("uncheck", e);
+        this.fire("uncheck", this.obj);
       }
     },
-    showElement: function (e) {
-      this.fire("show_request", e);
+    showElement: function () {
+      this.fire("show_request", this.obj);
     },
-    editElement : function(e){
-      this.fire("edit_request", e);
+    editElement : function(){
+      this.fire("edit_request", this.obj);
     },
-    deleteElement : function (e) {
-      this.fire("delete_request", e);
+    deleteElement : function () {
+      this.fire("delete_request", this.obj);
     }
   });
 })();
