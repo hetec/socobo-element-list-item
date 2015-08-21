@@ -16,7 +16,7 @@
       position: relative;
       height: 50px;
       line-height: 50px;
-      border-bottom: solid 1px #F4F0EC;
+      border-bottom: solid 2px #F4F0EC;
       color: #8A7F80;
     }
 
@@ -31,18 +31,24 @@
       text-align: center;
     }
 
-    .desc {
+    .desc, .info {
       z-index: 5;
+      font-family: sans-serif;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       overflow: hidden;
       position: absolute;
-      width: 100%;
+    }
+
+    .desc {
       left: 110px;
-      font-family: sans-serif;
       padding-right: 160px;
       margin-right: 160px;
     }
+
     .info{
-      margin-left: 10px;
+      position: absolute;
+      right : 450px;
     }
 
     .delete{
@@ -67,12 +73,120 @@
       color: var(--default-primary-color);
     }
 
+    @media all and (min-width:300px) and (max-width : 450px) {
+      .desc{
+        width: 90px;
+        left: 60px;
+      }
+
+      .info{
+        right : 100px;
+      }
+
+      .delete{
+        width: 60px;
+      }
+
+      .edit{
+        right: 60px;
+        width: 30px
+      }
+
+      .check{
+        width: 60px;
+      }
+    }
+
+    @media all and (min-width:451px) and (max-width : 600px) {
+      .desc{
+        width: 150px;
+      }
+
+      .info{
+        right : 150px;
+      }
+
+      .delete{
+        width: 60px;
+      }
+
+      .edit{
+        right: 60px;
+        width: 30px
+      }
+
+      .check{
+        width: 60px;
+      }
+    }
+
+    @media all and (min-width:601px) and (max-width : 750px) {
+      .desc{
+        width: 250px;
+      }
+
+      .info{
+        right : 200px;
+      }
+
+
+    }
+
+    @media all and (min-width:751px) and (max-width : 900px) {
+      .desc{
+        width: 320px;
+      }
+
+      .info{
+        right : 230px;
+      }
+    }
+
+    @media all and (min-width:901px) and (max-width : 1080px) {
+      .desc{
+        width: 420px;
+      }
+
+      .info{
+        right : 300px;
+      }
+    }
+
+    @media all and (min-width:1081px) and (max-width : 1280px) {
+      .desc{
+        width: 530px;
+      }
+
+      .info{
+        right : 350px;
+      }
+    }
+
+    @media all and (min-width:1281px) and (max-width : 1500px) {
+      .desc{
+        width: 680px;
+      }
+
+      .info{
+        right : 400px;
+      }
+    }
+    @media all and (min-width:1501px) and (max-width : 1800px){
+      .desc{
+        width: 850px;
+      }
+
+      .info{
+        right : 450px;
+      }
+    }
+
   </style>
 
   <template>
     <paper-material class="short_info" elevation="0" >
       <span class="check"><paper-checkbox checked="{{isChecked}}" on-click="changeCheckBox"></paper-checkbox></span>
-      <span class="desc" on-click="showElement"><span id="content">{{obj.desc}}<span class="info">{{obj.info}}</span></span></span>
+      <span class="desc" on-click="showElement">{{obj.desc}}</span><span class="info">{{obj.info}}</span>
       <span class="edit"><iron-icon icon="create" on-click="editElement"></iron-icon></span>
       <span class="delete"><iron-icon icon="delete" on-click="deleteElement"></iron-icon></span>
     </paper-material>
@@ -104,6 +218,7 @@
       }
     },
     showElement: function () {
+      this.handleLongDesc();
       this.fire("show_request", this.obj);
     },
     editElement : function(){
@@ -111,7 +226,7 @@
     },
     deleteElement : function () {
       this.fire("delete_request", this.obj);
-    }
+    },
   });
 })();
 </script>
