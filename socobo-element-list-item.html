@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../paper-item/paper-item.html">
@@ -48,7 +48,13 @@
       margin-right: 16px
     }
 
-    iron-icon:hover{
+    paper-icon-button {
+      width : 50px;
+      text-align: center;
+      padding: 0;
+    }
+
+    paper-icon-button:hover{
       color: var(--default-primary-color);
     }
   </style>
@@ -57,8 +63,8 @@
     <paper-material class="short_info" elevation="0" >
       <span class="check"><paper-checkbox checked="{{isChecked}}" on-click="changeCheckBox"></paper-checkbox></span>
       <span class="desc" on-click="showElement">{{obj.desc}}</span><span class="info">{{obj.info}}</span>
-      <span class="edit"><iron-icon icon="create" on-click="editElement"></iron-icon></span>
-      <span class="delete"><iron-icon icon="delete" on-click="deleteElement"></iron-icon></span>
+      <span class="edit"><paper-icon-button icon="create" on-click="editElement"></paper-icon-button></span>
+      <span class="delete"><paper-icon-button icon="delete" on-click="deleteElement"></paper-icon-button></span>
     </paper-material>
 
   </template>
@@ -88,7 +94,6 @@
       }
     },
     showElement: function () {
-      this.handleLongDesc();
       this.fire("show_request", this.obj);
     },
     editElement : function(){
