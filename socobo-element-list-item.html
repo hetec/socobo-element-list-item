@@ -5,7 +5,8 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
-
+<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
 <dom-module id="socobo-element-list-item">
   <style>
     :host{
@@ -60,7 +61,7 @@
   </style>
 
   <template>
-    <paper-material class="short_info" elevation="0" >
+    <paper-material id="wrapper" class="short_info" elevation="0" >
       <span class="check"><paper-checkbox checked="{{isChecked}}" on-click="changeCheckBox"></paper-checkbox></span>
       <span class="desc" on-click="showElement">{{obj.desc}}</span><span class="info">{{obj.info}}</span>
       <span class="edit"><paper-icon-button icon="create" on-click="editElement"></paper-icon-button></span>
@@ -75,7 +76,9 @@
 (function() {
   Polymer({
     is: 'socobo-element-list-item',
-
+    behaviors: [
+      Polymer.NeonAnimationRunnerBehavior
+    ],
     properties: {
       obj : {
         type : Object,
@@ -89,7 +92,7 @@
         value : function(){
           return {
             name : "fade-in-animation",
-            node: this
+            node: this.$.wrapper
           }
         }
       },
@@ -110,11 +113,8 @@
     deleteElement : function () {
       this.fire("delete_request", this.obj);
     },
-    animate : function(){
-      this.playAnimation();
-    },
     ready : function(){
-      this.animate();
+      this.playAnimation();
     }
   });
 })();
