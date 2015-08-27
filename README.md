@@ -1,23 +1,14 @@
-# socobo-element-template
+# socobo-element-list-itme
 
-## Steps:
----------
-1. download and install **NodeJS and NPM**
-2. install bower with **npm install -g bower**
-3. install web-component-tester with **npm install -g web-component-tester**
-4. install polyserve with **npm install -g polyserve**
-5. go to the socobo-element-template folder and install dependencies with **bower install**
-6. ready to rock!
+Represents one row of a list of elements like recipes or inventory items.
 
-## Notes:
----------
-- **IMPORTANT**: use canonical path for your imports, this means use _../_ instead of _bower_component/_ 
-- run server with **polyserve** inside the socobo-element-template folder to demo your element
-- go to **localhost:8080/components/socobo-element-template/demo** in your browser
-- run web-component-tester with **wct** inside the socobo-element-template folder to test your element
+### Provides the following information:
+- Name of the element
+- Further information about the element (e.g. number of items)
 
-## Resources:
--------------
-- [Polymer Project] (https://www.polymer-project.org/1.0/docs/start/getting-the-code.html)
-- [Polycast](https://www.youtube.com/watch?v=p7Q1mQtFGM8&list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&index=9)
-- [Firebase](https://www.firebase.com/docs/web/)
+### Provides the following functionality:
+- Deletion of the element
+- Edit element information
+- Show element information
+- Check the element (to run bulk operations on multiple elements)
+

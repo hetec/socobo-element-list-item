@@ -84,7 +84,15 @@
       isChecked : {
         type : Boolean,
         value : false
-      }
+      },
+      animationConfig : {
+        value : function(){
+          return {
+            name : "fade-in-animation",
+            node: this
+          }
+        }
+      },
     },
     changeCheckBox : function(){
       if(this.isChecked == true){
@@ -102,6 +110,12 @@
     deleteElement : function () {
       this.fire("delete_request", this.obj);
     },
+    animate : function(){
+      this.playAnimation();
+    },
+    ready : function(){
+      this.animate();
+    }
   });
 })();
 </script>
