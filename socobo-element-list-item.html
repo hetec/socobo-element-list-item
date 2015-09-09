@@ -1,12 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../paper-checkbox/paper-checkbox.html">
-<link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../paper-material/paper-material.html">
-<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
-<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
-<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
+<link href="elements.html" rel="import">
 <dom-module id="socobo-element-list-item">
   <style>
     :host{
@@ -112,15 +104,15 @@
       }
     },
     showElement: function () {
-      alert("test");
+      //lert("show");
       this.fire("show_request", this.obj);
     },
     editElement : function(){
-      alert("edit");
+      //alert("edit");
       this.fire("edit_request", this.obj);
     },
     deleteElement : function () {
-      alert("remove");
+      //alert("remove");
       this.fire("delete_request", this.obj);
     },
     ready : function(){
