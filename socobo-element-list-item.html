@@ -62,7 +62,7 @@
 
   <template>
     <paper-material id="wrapper" class="short_info" elevation="0" >
-      <span class="check"><paper-checkbox checked="{{isChecked}}" on-click="changeCheckBox"></paper-checkbox></span>
+      <span class="check"><paper-checkbox checked="{{obj.isChecked}}" on-click="changeCheckBox"></paper-checkbox></span>
       <span class="desc" on-click="showElement">{{obj.desc}}</span><span class="info" on-click="showElement">{{obj.info}}</span>
       <span class="edit"><paper-icon-button icon="create" on-click="editElement"></paper-icon-button></span>
       <span class="delete"><paper-icon-button icon="delete" on-click="deleteElement"></paper-icon-button></span>
@@ -83,10 +83,6 @@
         type : Object,
         value : {}
       },
-      isChecked : {
-        type : Boolean,
-        value : false
-      },
       animationConfig : {
         value : function(){
           return {
@@ -94,25 +90,22 @@
             node: this.$.wrapper
           }
         }
-      },
+      }
     },
     changeCheckBox : function(){
-      if(this.isChecked == true){
+      if(this.obj.isChecked == true){
         this.fire("check", this.obj);
       }else{
         this.fire("uncheck", this.obj);
       }
     },
     showElement: function () {
-      //lert("show");
       this.fire("show_request", this.obj);
     },
     editElement : function(){
-      //alert("edit");
       this.fire("edit_request", this.obj);
     },
     deleteElement : function () {
-      //alert("remove");
       this.fire("delete_request", this.obj);
     },
     ready : function(){
