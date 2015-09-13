@@ -1,6 +1,6 @@
 {
   "name": "socobo-element-list-item",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Element representing a summarized information about one recipe, item or other",
   "author": [
     "hetec"
