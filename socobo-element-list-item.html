@@ -29,6 +29,8 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      height: 100%;
+      line-height: 50px;
     }
 
     .desc {
@@ -82,7 +84,9 @@
     properties: {
       obj : {
         type : Object,
-        value : {}
+        value : {
+          desc: "test"
+        }
       },
       isChecked : {
         type : Boolean,
