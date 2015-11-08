@@ -7,7 +7,6 @@
       @apply(--layout-horizontal);
       @apply(--layout-center);
       height: 50px;
-      line-height: 50px;
       border-bottom: solid 2px #F4F0EC;
       color: #8A7F80;
       padding-right: 16px;
@@ -30,6 +29,8 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      height: 100%;
+      line-height: 50px;
     }
 
     .desc {
@@ -49,10 +50,12 @@
       margin-right: 16px
     }
 
+
     paper-icon-button {
-      width : 50px;
+      width : 30px;
+      height: 30px;
       text-align: center;
-      padding: 0;
+      padding: 10px;
     }
 
     paper-icon-button:hover{
@@ -81,7 +84,9 @@
     properties: {
       obj : {
         type : Object,
-        value : {}
+        value : {
+          desc: "test"
+        }
       },
       isChecked : {
         type : Boolean,
