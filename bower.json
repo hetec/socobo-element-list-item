@@ -1,6 +1,6 @@
 {
-  "name": "socobo-list-item",
-  "version": "0.0.1",
+  "name": "socobo-element-list-item",
+  "version": "0.1.0",
   "description": "Element representing a summarized information about one recipe, item or other",
   "author": [
     "hetec"
@@ -12,11 +12,11 @@
     "socobo",
     "frontend"
   ],
-  "main": "socobo-list-item.html",
+  "main": "socobo-element-list-item.html",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/hetec/socobo-short-info.git"
+    "url": "https://github.com/hetec/socobo-element-list-item.git"
   },
   "license": "",
   "homepage": "",
